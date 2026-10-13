@@ -12,3 +12,8 @@ services:
       - /home/albin/server/pihole/etc-pihole:/etc/pihole
       - /home/albin/server/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
