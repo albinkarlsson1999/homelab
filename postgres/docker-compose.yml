@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: hushallsapp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      internal:
+        ipv4_address: 10.10.10.10
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    networks:
+      - internal
+
+networks:
+  internal:
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
+
+volumes:
+  pgdata:
+    name: post-gre_pgdata
