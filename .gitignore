@@ -1,0 +1,12 @@
+# Ignore everything
+*
+# But let in compose-files and docs
+!*/
+!*/docker-compose.yml
+!README.md
+!.gitignore
+!.env.example
+
+# Keep outside of repo
+lucent/
+homeassistant/custom-components/
