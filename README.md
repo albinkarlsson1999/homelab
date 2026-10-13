@@ -24,22 +24,28 @@ The network is segmented into VLANs to keep untrusted devices away from the rest
 | Wireguard | VPN into home network | Native |
 | Minecraft server | Modded Forge (Feed The Beast) server | Native |
 
+## Deployment (GitOps)
+This repo is the single source of truth. Every docker service runs as a **Portainer stack deployed directly from this repository**:
+
+1. Change a compose file and push to `main`
+2. Portainer pulls the change and redeploys the stack
+
+Compose files cant be edited inside Portainer, all changes go through Git, so whats in this repo is always what is running. Portainer itself is the expection and runs from its own compose file
+
 ## Remote access 
 - **Cloudflare Tunnel** exposes Home Assistant and other selected services via Zero Trust without the need of opening ports on my router
 - **Wireguard** for full access to my home network when I am away
+- **PostgreSQL** exposes no ports at all — it's only reachable through its own dedicated tunnel
 
 ## Secrets
-No passwords or keys are commited. Each service reads its secrets from a local .env file (git-ignored). Copy the example and fill it in:
-
-```bash
-cp .env.example .env
-```
+No passwords or keys are committed. Secrets are referenced as `${VARIABLES}` in the compose files and set as **stack environment variables in Portainer**. Each service that needs secrets has a `.env.example` listing the required variables.
 
 The .gitignore uses a **whitelist** — everything is ignored by default and only
 compose files and docs are allowed in — so nothing sensitive can slip through by accident.
 
-## Running a service
-```bash
-cd <service>
-docker compose up -d
-```
+## Running a service manually
+Without Portainer, any service can be started with plain Docker Compose:
+
+    cd <service>
+    cp .env.example .env   # fill in the values
+    docker compose up -d
