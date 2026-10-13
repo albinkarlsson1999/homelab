@@ -6,8 +6,8 @@ services:
     ports:
       - "8096:8096"
     volumes:
-      - ./config:/config
-      - ./cache:/cache
-      - ./media:/media
+      - /home/albin/server/jellyfin/config:/config
+      - /home/albin/server/jellyfin/cache:/cache
+      - /home/albin/server/jellyfin/media:/media
     restart: unless-stopped
 
