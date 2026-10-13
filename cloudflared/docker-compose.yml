@@ -1,0 +1,9 @@
+services:
+  cloudflared-ha:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-ha
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    network_mode: host
+    restart: unless-stopped
