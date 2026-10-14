@@ -2,7 +2,8 @@ services:
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
-    network_mode: bridge
+    networks:
+      - proxy
     ports:
       - "8096:8096"
     volumes:
@@ -10,4 +11,18 @@ services:
       - /home/albin/server/jellyfin/cache:/cache
       - /home/albin/server/jellyfin/media:/media
     restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jellyfin.rule=Host(`jellyfin.${LAN_DOMAIN}`)
+      - traefik.http.routers.jellyfin.entrypoints=websecure
+      - traefik.http.routers.jellyfin.tls.certresolver=cloudflare
+      - traefik.http.services.jellyfin.loadbalancer.server.port=8096
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 
+networks:
+  proxy:
+    external: true
