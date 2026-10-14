@@ -1,0 +1,15 @@
+http:
+  routers:
+    homeassistant:
+      rule: Host(`ha.{{ env "LAN_DOMAIN" }}`)
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: homeassistant
+
+  services:
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: http://192.168.1.10:8123
