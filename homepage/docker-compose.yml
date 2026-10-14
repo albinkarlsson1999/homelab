@@ -6,6 +6,8 @@ services:
       - 3000:3000
     environment:
       - HOMEPAGE_ALLOWED_HOSTS=${HOMEPAGE_ALLOWED_HOSTS}
+      - HOMEPAGE_VAR_JELLYFIN_KEY=${JELLYFIN_KEY}
+      - HOMEPAGE_VAR_PIHOLE_KEY=${PIHOLE_KEY}
     volumes:
       - /home/albin/server/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock:ro
