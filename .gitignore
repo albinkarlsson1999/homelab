@@ -6,6 +6,7 @@
 !README.md
 !.gitignore
 !.env.example
+!traefik/dynamic/*.yml
 
 # Keep outside of repo
 lucent/

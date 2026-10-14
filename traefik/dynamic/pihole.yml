@@ -1,0 +1,16 @@
+http:
+  routers:
+    pihole:
+      rule: Host(`pihole.{{ env "LAN_DOMAIN" }}`)
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: pihole
+
+  services:
+    pihole:
+      loadBalancer:
+        servers:
+          - url: http://192.168.1.10:8082
+

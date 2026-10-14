@@ -4,6 +4,9 @@ services:
     container_name: traefik
     restart: unless-stopped
     command:
+      # Hitta pihole och homeassistant via dess filer, inte deras dockers
+      - --providers.file.directory=/etc/traefik/dynamic
+      - --providers.file.watch=true
       # Hitta tjänster via Docker-labels, men bara de som uttryckligen slår på det
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
@@ -21,12 +24,14 @@ services:
       - --api.dashboard=true
     environment:
       CF_DNS_API_TOKEN: ${CF_DNS_API_TOKEN}
+      LAN_DOMAIN: ${LAN_DOMAIN}
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/albin/server/traefik/letsencrypt:/letsencrypt
+      - /home/albin/server/traefik/dynamic:/etc/traefik/dynamic:ro
     networks:
       - proxy
     labels:
