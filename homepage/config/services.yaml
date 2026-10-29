@@ -59,6 +59,11 @@
         description: Container management
         server: my-docker
         container: portainer
+        widget:
+          type: portainer
+          url: https://portainer.lan.nut-at-home.party
+          env: 3
+          key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
     - Portfolio:
         icon: https://albinkarlsson.dev/favicon.svg
         href: https://albinkarlsson.dev
