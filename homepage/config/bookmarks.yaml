@@ -1,0 +1,69 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Developer:
+    - Github:
+        - icon: si-github
+          abbr: GH
+          href: https://github.com/albinkarlsson1999?tab=repositories
+    - Docker Hub:
+        - icon: si-docker
+          abbr: DO
+          href: https://hub.docker.com/
+    - Rapid API:
+        - icon: si-rapid
+          abbr: RAPI
+          href: https://rapidapi.com/hub
+    - MDN Web Docs:
+        - icon: si-mdnwebdocs
+          abbr: MDN
+          href: https://developer.mozilla.org/en-US/
+
+- Electronics:
+    - Electrokit:
+        - icon: https://www.electrokit.com/favicon.ico
+          abbr: EK
+          href: https://www.electrokit.com/
+    - LCSC:
+        - icon: https://www.lcsc.com/favicon.ico
+          abbr: LCSC
+          href: https://www.lcsc.com/
+    - TME:
+        - icon: https://www.tme.eu/favicon.ico
+          abbr: TME
+          href: https://www.tme.eu/se/
+    - Falstad:
+        - abbr: FA
+          icon: https://www.falstad.com/favicon.ico
+          href: https://www.falstad.com/circuit/
+    - ESPHome docs:
+        - icon: si-esphome
+          abbr: ESP
+          href: https://esphome.io/components/
+    - WLED docs:
+        - icon: https://kno.wled.ge/assets/images/ui/aircoookie/blurple.png
+          abbr: WLED
+          href: https://kno.wled.ge/
+
+- School:
+    - Canvas:
+        - abbr: CA
+          icon: si-canvas
+          href: https://canvas.ju.se/login/
+    - Schedule:
+        - abbr: SH
+          icon: mdi-calendar-account
+          href: https://cloud.timeedit.net/ju/web/open/ri687QeQ5n0Zb5Q51Y86ZuQ1yZZQ8650.html
+    - Ladok:
+        - abbr: LA
+          icon: mdi-note-text
+          href: https://student.ladok.se/student/app/studentwebb/
+    - Library:
+        - abbr: LIB
+          icon: mdi-library
+          href: https://ju.se/library.html
+    - Career center:
+        - abbr: CC
+          icon: mdi-briefcase
+          href: https://ju.se/student/en/career/career-center.html
