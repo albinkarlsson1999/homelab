@@ -59,3 +59,9 @@
         description: Container management
         server: my-docker
         container: portainer
+    - Portfolio:
+        icon: https://albinkarlsson.dev/favicon.svg
+        href: https://albinkarlsson.dev
+        description: Personal portfolio status
+        siteMonitor: https://albinkarlsson.dev
+        statusStyle: "dot"
