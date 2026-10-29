@@ -12,3 +12,5 @@
 # Keep outside of repo
 lucent/
 homeassistant/custom-components/
+homepage/config/kubernetes.yaml
+homepage/config/proxmox.yaml
